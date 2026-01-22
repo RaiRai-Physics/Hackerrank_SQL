@@ -1,0 +1,10 @@
+Hackerrank SQL Top earners
+Question link: https://www.hackerrank.com/challenges/earnings-of-employees/problem?isFullScreen=true
+SELECT 
+MAX(months * salary) AS max_earnings,
+COUNT(*)
+FROM employee
+WHERE months * salary = (
+SELECT MAX(months * salary)
+FROM employee
+);
