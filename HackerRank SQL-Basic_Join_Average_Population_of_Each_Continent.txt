@@ -1,0 +1,10 @@
+HackerRank SQL- Basic Join; Average Population of Each Continent
+Question Link: https://www.hackerrank.com/challenges/what-type-of-triangle/problem?isFullScreen=true
+
+select
+COUNTRY.Continent,
+floor(avg(CITY.Population))
+from CITY
+join COUNTRY
+on CITY.CountryCode = COUNTRY.Code
+group by COUNTRY.Continent;

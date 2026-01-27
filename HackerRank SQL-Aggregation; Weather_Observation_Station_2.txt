@@ -1,0 +1,10 @@
+HackerRank SQL-Aggregation; Weather Observation Station 2
+Question Link:https://www.hackerrank.com/challenges/weather-observation-station-2/problem?isFullScreen=true
+
+/*
+Enter your query here.
+*/
+select 
+round(SUM(LAT_N), 2),
+round(SUM(LONG_W), 2)
+from STATION;

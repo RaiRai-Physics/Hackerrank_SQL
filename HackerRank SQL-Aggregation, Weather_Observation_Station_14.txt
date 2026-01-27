@@ -1,0 +1,8 @@
+HackerRank SQL-Aggregation, Weather Observation Station 14
+Question Link:https://www.hackerrank.com/challenges/weather-observation-station-14/problem?isFullScreen=true
+
+/*
+Enter your query here.
+*/
+select max(truncate(LAT_N,4)) from Station
+where LAT_N < 137.2345

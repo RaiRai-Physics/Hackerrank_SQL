@@ -1,0 +1,9 @@
+HackerRank SQL-Aggregation; Weather Observation Station 13
+Question Link: https://www.hackerrank.com/challenges/weather-observation-station-13/problem?isFullScreen=true
+/*
+Enter your query here.
+*/
+select    
+truncate(SUM(LAT_N), 4)
+from STATION
+where LAT_N > 38.7880 AND LAT_N < 137.2345;
