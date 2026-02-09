@@ -1,0 +1,7 @@
+select
+    truncate(diff, 0) + (diff > truncate(diff, 0))
+from (
+    select
+        avg(salary) - avg(replace(salary, '0', '')) as diff
+    from employees
+) t;
