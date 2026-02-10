@@ -1,0 +1,25 @@
+HackerRank SQL New Companies
+
+Question Link: https://www.hackerrank.com/challenges/the-company/problem?isFullScreen=true
+
+select
+company.company_code,
+company.founder,
+count(distinct lead_manager.lead_manager_code) as total_lead_managers,
+count(distinct senior_manager.senior_manager_code) as total_senior_managers,
+count(distinct manager.manager_code) as total_managers,
+count(distinct employee.employee_code) as total_employees
+from company
+left join lead_manager
+on company.company_code = lead_manager.company_code
+left join senior_manager
+on company.company_code = senior_manager.company_code
+left join manager
+on company.company_code = manager.company_code
+left join employee
+on company.company_code = employee.company_code
+group by
+company.company_code,
+company.founder
+order by
+company.company_code;
