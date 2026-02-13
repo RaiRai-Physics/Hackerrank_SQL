@@ -1,0 +1,32 @@
+HackerRank SQL: Project Planning
+
+Question Link: https://www.hackerrank.com/challenges/sql-projects/problem?isFullScreen=true
+
+/*
+Enter your query here.
+*/
+with projects_grouped as (
+select
+start_date,
+end_date,
+case
+when lag(end_date) over (order by start_date) = start_date then 0
+else 1
+end as new_project_flag
+from projects
+),
+projects_labeled as (
+select
+start_date,
+end_date,
+sum(new_project_flag) over (order by start_date) as project_id
+from projects_grouped
+)
+select
+min(start_date) as start_date,
+max(end_date) as end_date
+from projects_labeled
+group by project_id
+order by
+datediff(max(end_date), min(start_date)) asc,
+min(start_date) asc;
