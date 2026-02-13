@@ -1,0 +1,24 @@
+HackerRank SQL: Contest Leaderboard	
+
+Question Link: https://www.hackerrank.com/challenges/contest-leaderboard/problem?isFullScreen=true
+
+/*
+Enter your query here.
+*/
+select 
+h.hacker_id,
+h.name,
+sum(max_scores.max_score) as total_score
+from hackers h
+join (
+select 
+hacker_id,
+challenge_id,
+max(score) as max_score
+from submissions
+group by hacker_id, challenge_id
+) max_scores
+on h.hacker_id = max_scores.hacker_id
+group by h.hacker_id, h.name
+having sum(max_scores.max_score) > 0
+order by total_score desc, h.hacker_id asc;
