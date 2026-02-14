@@ -1,0 +1,17 @@
+HackerRank SQL: Placements
+
+Question Link: https://www.hackerrank.com/challenges/placements/problem?isFullScreen=true
+
+/*
+Enter your query here.
+*/
+select s.name
+from students s
+join packages p
+on p.id = s.id
+join friends f
+on f.id = s.id
+join packages fp
+on fp.id = f.friend_id
+where fp.salary > p.salary
+order by fp.salary;
